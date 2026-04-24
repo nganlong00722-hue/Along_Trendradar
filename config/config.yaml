@@ -191,9 +191,17 @@ rss:
       name: "SecurityWeek"
       url: "https://www.securityweek.com/feed/"
 
-    - id: "github-security-advisories"
-      name: "GitHub Security Advisories"
-      url: "https://github.com/security-advisories.atom"
+    - id: "sans-isc"
+      name: "SANS Internet Storm Center"
+      url: "https://isc.sans.edu/rssfeed.xml"
+
+    - id: "the-record"
+      name: "The Record"
+      url: "https://therecord.media/feed"
+
+    - id: "crowdstrike-blog"
+      name: "CrowdStrike Blog"
+      url: "https://www.crowdstrike.com/en-us/blog/feed"
 
     - id: "msrc"
       name: "Microsoft Security Response Center"
