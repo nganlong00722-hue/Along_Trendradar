@@ -41,7 +41,7 @@ app:
 # ===============================================================
 schedule:
   enabled: true                         # 是否启用调度系统
-  preset: "morning_evening"             # 预设模板名称（见上方说明）
+  preset: "along_focus"             # 预设模板名称（见上方说明）
 
 
 # ===============================================================
@@ -127,6 +127,58 @@ rss:
       name: "雅虎财经"
       url: "https://finance.yahoo.com/news/rssindex"
 
+    # 海外权威新闻与科技
+    - id: "bbc-world"
+      name: "BBC World"
+      url: "https://feeds.bbci.co.uk/news/world/rss.xml"
+
+    - id: "bbc-technology"
+      name: "BBC Technology"
+      url: "https://feeds.bbci.co.uk/news/technology/rss.xml"
+
+    - id: "guardian-world"
+      name: "The Guardian World"
+      url: "https://www.theguardian.com/world/rss"
+
+    - id: "guardian-technology"
+      name: "The Guardian Technology"
+      url: "https://www.theguardian.com/technology/rss"
+
+    # 网络安全 / CVE / 漏洞情报
+    - id: "the-hacker-news"
+      name: "The Hacker News"
+      url: "https://feeds.feedburner.com/TheHackersNews"
+
+    - id: "bleepingcomputer"
+      name: "BleepingComputer"
+      url: "https://www.bleepingcomputer.com/feed/"
+
+    - id: "krebs-security"
+      name: "Krebs on Security"
+      url: "https://krebsonsecurity.com/feed/"
+
+    - id: "cisa-advisories"
+      name: "CISA Cybersecurity Advisories"
+      url: "https://www.cisa.gov/cybersecurity-advisories/all.xml"
+
+    # Reddit 社区 RSS（无需 API；若遇到限流可再删减）
+    - id: "reddit-netsec"
+      name: "Reddit r/netsec"
+      url: "https://www.reddit.com/r/netsec/.rss"
+
+    - id: "reddit-cybersecurity"
+      name: "Reddit r/cybersecurity"
+      url: "https://www.reddit.com/r/cybersecurity/.rss"
+
+    # 足球 / F1
+    - id: "bbc-football"
+      name: "BBC Football"
+      url: "https://feeds.bbci.co.uk/sport/football/rss.xml"
+
+    - id: "bbc-formula1"
+      name: "BBC Formula 1"
+      url: "https://feeds.bbci.co.uk/sport/formula1/rss.xml"
+
     # 自定义源示例
     # - id: "custom-feed"
     #   name: "自定义源"
@@ -207,7 +259,7 @@ ai_filter:
   batch_interval: 2                       # 分批处理时，每批之间的等待时间（秒）
                                           # 避免频繁调用 API 触发限流，设为 0 则不等待
 
-  min_score: 0.7                          # 推送最低分数阈值（0.0 ~ 1.0）
+  min_score: 0.6                          # 推送最低分数阈值（0.0 ~ 1.0）
                                           # 0 = 不过滤；值越高越严格（推荐先用 0.5~0.7）
 
   # 兴趣描述文件
@@ -507,7 +559,7 @@ ai_analysis:
                                       # GitHub Action 部署默认推送约 20 次（每小时推送一次）， 约 0.1 元/天
                                       # Docker 部署默认推送 48 次(每半小时推送一次)， 约 0.2 元/天
 
-  include_rss: false                # 是否包含 RSS 内容进行分析
+  include_rss: true                # 是否包含 RSS 内容进行分析
   
   include_standalone: true          # 是否将独立展示区数据纳入 AI 分析
                                     # 数据源列表来自 display.standalone.platforms / display.standalone.rss_feeds
